@@ -1,22 +1,10 @@
 ---
-title: 'ENVX1002 Lab 4'
-format:
-  html:
-    fig-caption: true
-    self-contained: true
-    theme: lumen
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    toc-float:
-      collapsed: false
-    code_folding: hide
-    md_extensions: +grid_tables
+title: Lab 04
+subtitle: "ENVX1002"
+description: The University of Sydney
+date: today
+date-format: "[Semester 1,] YYYY"
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 # Facing challenges
 
