@@ -33,6 +33,10 @@ At the end of this computer practical, students should be able to:
 - calculate probabilities associated sampling distribution of the sample mean by using simulation in R and using R commands.
 :::
 
+Link to data is below:
+
+- [ENVX1002_Data4.xlsx](data/ENVX1002_Data4.xlsx)
+- Alternatively download from Canvas
 
 # R commands for normal distribution
 
@@ -187,9 +191,10 @@ Hint: You may need to use the `stat_function` command to draw the curve and then
 
 ```{r}
 ggplot(data.frame(x = c(4.16-4*0.3, 4.16+4*0.3)), aes(x = x)) +
-  stat_function(fun = dnorm, args = list(mean = 4.16, sd=0.30)) +
   stat_function(fun = dnorm, args = list(mean = 4.16, sd=0.30)
-    , xlim = c(4.16-4*0.3, 4), geom = "area", fill = "lightblue") +
+                ,geom = "area", fill = "white") +
+  stat_function(fun = dnorm, args = list(mean = 4.16, sd=0.30)
+    , xlim = c(4.16-4*0.3, 4), geom = "area", fill = "red") +
   xlab("x") +
   ylab(expression(N(4.16,0.30^2)~pdf))
 ```
@@ -231,9 +236,23 @@ ii) What is the probability of finding an Australian woman of this height or tal
 
 **Hints**:
 
-Step 1: Using gplot, draw a sketch of the Normal curve with the probability identified. You may need to draw a section of the right tail as the probability is small!
+**Step 1**: Using ggplot, draw a sketch of the Normal curve with the probability identified. You may need to draw a section of the right tail as the probability is small! We have provided the solution for the plotting to assist you.
 
-Step 2: Calculate the probability in R or write out the probability, standardise the variable, and look up the Normal Table.
+**Step 2**: Calculate the probability in R.
+
+```{r}
+1-pnorm(189, 161.8, 6)
+
+ggplot() +
+  stat_function(fun = dnorm, args = list(mean = 161.8, sd=6), 
+                geom = "area", fill = "white", xlim = c(180, 161.8+4*6)) +
+  stat_function(fun = dnorm, args = list(mean = 161.8, sd=6), 
+                geom = "area", fill = "red", xlim = c(161.8+4*6, 189)) +
+  xlab("x") +
+  ylab(expression(N(161.8,6^2)~pdf)) +
+  scale_x_continuous(breaks = 189)
+
+```
 
 iii) Dharshani Sivalingam is the tallest netball player in the world. How tall is Dharshani? <https://en.wikipedia.org/wiki/Tharjini_Sivalingam> What is the probability of finding an Australian woman of Dharshani's height?
 
