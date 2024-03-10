@@ -30,8 +30,9 @@ Link to data is below:
 
 - **Probability density function:** $f(x)$ = $dnorm(x,\mu,\sigma)$
 - **Cumulative probabilities:** $F(x) = P(X \le x)$ = $pnorm(x,\mu,\sigma)$
-- **Interval probabiltites:** $P(a \le X \le b)$ = $pnorm(b,\mu,\sigma) - pnorm(a,\mu,\sigma)$
+- **Interval probabilities:** $P(a \le X \le b)$ = $pnorm(b,\mu,\sigma) - pnorm(a,\mu,\sigma)$
 - **Inverse probabilities:** Find $x$ such that $P(X \le x) = q qnorm(q,\mu,\sigma)$
+- **Generate normal random numbers:** $rnorm(n,\mu,\sigma)$
 
 
 
@@ -94,8 +95,17 @@ hist(sample10)
 
 iii) Find the probability $P(X \ge 180)$ for each of the simulations and also the exact value. What do you notice in the difference between each of the simulations and the exact probability? An example is given below for the 10 simulations above and the exact probability:
 
+**Actual probability**
+
 ```{r}
-1-pnorm(180,163.9,6.6) ## actual p
+1-pnorm(180,163.9,6.6) 
+## OR
+pnorm(180,163.9,6.6, lower.tail = FALSE)
+```
+
+**Simulated probability**
+
+```{r}
 length(which(sample10>=180))/10 ## simulated p for sample size 10
 ```
 
